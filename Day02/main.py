@@ -23,32 +23,32 @@ if mydb.is_connected():
     
     cursor = mydb.cursor()
     cursor.execute("use laplateforme;")
-    results= cursor.fetchall()
-    
-    result = cursor.fetchone()
-    print(results)
-    print("--------------------")
-    print(result)
-    cursor.close()
-    
-    cursor = mydb.cursor()
-    cursor.execute("show TABLES;")
-    
+   
 
-    results= cursor.fetchall()
-    result = cursor.fetchone()
-    print(results)
-    print("--------------------")
-    print(result)
-    cursor.close()
-
-    cursor = mydb.cursor()
     cursor.execute("SELECT * from etudiant_main;")
     results= cursor.fetchall()
-    result = cursor.fetchone()
+    # result = cursor.fetchone()
     print(results)
-    print("--------------------")
-    print(result)
-    cursor.close()
+    # print("--------------------")
+    # print(result)
+
+    # Job 03
+    # cursor.execute("INSERT INTO etage (nom,numero, superficie) VALUES('RDC',0,500);")
+    # mydb.commit()
+    # cursor.execute("INSERT INTO etage (id,nom,numero, superficie) VALUES(2,'R+1',1,500);")
+    # mydb.commit()
     
+    cursor.execute("SELECT * from etage;")
+    results = cursor.fetchall()
+    print("--------------------")
+    print(results)
+    
+    cursor.execute("INSERT INTO salle (nom,id_etage, capacite) VALUES('Lounge',1,100),('Studio Son',1,5),('Broadcasting',2,50),('Bocal Peda',2,4),('Coworking',2,80),('Studio Video', 2,5) ;")
+    mydb.commit()
+    cursor.execute("SELECT * from salle;")
+    results = cursor.fetchall()
+    print("--------------------")
+    print(results)
+   
+    cursor.close()
     mydb.close()
