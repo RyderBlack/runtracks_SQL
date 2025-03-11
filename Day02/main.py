@@ -1,4 +1,3 @@
-# import _mysql_connector
 import os
 import mysql.connector
 from dotenv import load_dotenv
@@ -57,12 +56,19 @@ if mydb.is_connected():
     # print(results)
     
     
-    ## Job 04
-    cursor.execute("SELECT SUM(superficie) from etage;")
+    ## Job 05
+    # cursor.execute("SELECT SUM(superficie) from etage;")
+    # result = cursor.fetchone()
+    # total_superficie = result[0]
+    # print("--------------------")
+    # print(f"La superficie de La Plateforme est de {total_superficie}m2")
+    
+    ## Job 06
+    cursor.execute("SELECT SUM(capacite) from salle;")
     result = cursor.fetchone()
     total_superficie = result[0]
     print("--------------------")
-    print(f"La superficie de La Plateforme est de {total_superficie}m2")
+    print(f"La capacite de toutes les salles est de: {total_superficie}")
     
     cursor.close()
     mydb.close()
