@@ -51,10 +51,18 @@ if mydb.is_connected():
     # print(results)
     
     ## Job 04
-    cursor.execute("SELECT nom, capacite from salle;")
-    results = cursor.fetchall()
+    # cursor.execute("SELECT nom, capacite from salle;")
+    # results = cursor.fetchall()
+    # print("--------------------")
+    # print(results)
+    
+    
+    ## Job 04
+    cursor.execute("SELECT SUM(superficie) from etage;")
+    result = cursor.fetchone()
+    total_superficie = result[0]
     print("--------------------")
-    print(results)
+    print(f"La superficie de La Plateforme est de {total_superficie}m2")
     
     cursor.close()
     mydb.close()
